@@ -4,16 +4,25 @@ public class Dragons {
     private String name;
     private int age;
     private double weight;
+    private Breed breed;
 
     public Dragons() {
         System.out.println("Створено невідомого дракона");
     }
 
     public Dragons(String name, int age, double weight) {
-        System.out.println("Створено повноцінного дракона");
         this.name = name;
         this.age = age;
         this.weight = weight;
+        System.out.println("Створено дракона без породи");
+    }
+
+    public Dragons(String name, int age, double weight, Breed breed) {
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.breed = breed;
+        System.out.println("Створено повноцінного дракона");
     }
 
     public void setName(String name) {
@@ -28,7 +37,14 @@ public class Dragons {
         this.weight = weight;
     }
 
-    // Метод "говорити"
+    public Breed getBreed() {
+        return this.breed;
+    }
+
+    public void setBreed(Breed breed) {
+        this.breed = breed;
+    }
+
     public void voice() {
         System.out.println(name + " каже: Грррррррррррррррррррр!");
     }
@@ -37,18 +53,17 @@ public class Dragons {
         System.out.println(name + " каже: " + word);
     }
 
-    //  Новий метод — випускати вогонь
     public void fire() {
         System.out.println(name + " випускає полум’я!!! 🔥");
     }
 
-    //  Метод toString()
     @Override
     public String toString() {
         return "Дракон {" +
                 "ім'я='" + name + '\'' +
                 ", вік=" + age +
                 ", вага=" + weight +
+                ", порода=" + (breed != null ? breed : "невідома") +
                 '}';
     }
 }

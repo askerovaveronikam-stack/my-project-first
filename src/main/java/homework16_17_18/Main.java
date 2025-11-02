@@ -1,5 +1,6 @@
 package homework16_17_18;
 
+import homework16_17_18.animals.Breed;
 import homework16_17_18.animals.Dragons;
 import java.util.Scanner;
 
@@ -11,13 +12,20 @@ public class Main {
         toothless.setName("Toothless");
         toothless.setAge(4);
         toothless.setWeight(500);
-        System.out.println(toothless);
+        toothless.setBreed(Breed.DARKEYE);
+
+        System.out.println("Породи драконів, які нам відомі:");
+        for (Breed breed : Breed.values()) {
+            System.out.println("- " + breed);
+        }
+
+        System.out.println("\n" + toothless);
         toothless.fire();
         toothless.voice();
 
         // 2. Створюємо дракона через повний конструктор
         Dragons stitch = new Dragons("Stitch", 1, 25.5);
-        System.out.println(stitch);
+        System.out.println("\n" + stitch);
         stitch.fire();
         stitch.voice("Привіт!");
 
@@ -38,5 +46,7 @@ public class Main {
 
         customDragon.fire();
         customDragon.voice();
+
+        scanner.close();
     }
 }
