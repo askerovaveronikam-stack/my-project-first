@@ -2,6 +2,7 @@ package homework20.car;
 
 import java.time.LocalDate;
 
+
 public class Car {
     private double fuelLevel;        // літри пального в баку
     private double fuelConsumption;  // витрата палива на 100 км
