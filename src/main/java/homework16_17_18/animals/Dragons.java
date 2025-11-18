@@ -51,4 +51,26 @@ public class Dragons {
                 ", вага=" + weight +
                 '}';
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Dragons dragons = (Dragons) o;
+
+        if (age != dragons.age) return false;
+        if (Double.compare(dragons.weight, weight) != 0) return false;
+        return name != null ? name.equals(dragons.name) : dragons.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + age;
+        long temp = Double.doubleToLongBits(weight);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+
 }
